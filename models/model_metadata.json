@@ -1,0 +1,25 @@
+{
+  "trained_on_seasons": [
+    2022,
+    2023,
+    2024,
+    2025
+  ],
+  "total_games": 1094,
+  "train_games": 875,
+  "test_games": 219,
+  "train_accuracy": 0.6365714285714286,
+  "test_accuracy": 0.5525114155251142,
+  "features": [
+    "home_team_avg_points_for",
+    "home_team_avg_points_against",
+    "away_team_avg_points_for",
+    "away_team_avg_points_against",
+    "home_recent_form",
+    "away_recent_form",
+    "home_field_advantage"
+  ],
+  "model_type": "LogisticRegression",
+  "includes_current_season": true,
+  "current_season": 2025
+}
