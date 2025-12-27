@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NFL Game Outcome Predictor</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>🏈 NFL Game Outcome Predictor</h1>
+            <p class="subtitle">Predict NFL game winners using machine learning</p>
+        </header>
+
+        <!-- Prediction Form -->
+        <div class="card">
+            <h2>Make a Prediction</h2>
+            
+            <form id="predictionForm">
+                <!-- Season Selection -->
+                <div class="form-group">
+                    <label for="season">Season</label>
+                    <select id="season" name="season" required>
+                        <option value="">Select Season</option>
+                        <option value="2025">2025 (Current)</option>
+                        <option value="2024">2024</option>
+                        <option value="2023">2023</option>
+                        <option value="2022">2022</option>
+                    </select>
+                </div>
+
+                <!-- Home Team Selection -->
+                <div class="form-group">
+                    <label for="homeTeam">Home Team</label>
+                    <select id="homeTeam" name="homeTeam" required disabled>
+                        <option value="">Select season first</option>
+                    </select>
+                </div>
+
+                <!-- VS Indicator -->
+                <div class="vs-indicator">VS</div>
+
+                <!-- Away Team Selection -->
+                <div class="form-group">
+                    <label for="awayTeam">Away Team</label>
+                    <select id="awayTeam" name="awayTeam" required disabled>
+                        <option value="">Select season first</option>
+                    </select>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" id="predictBtn" class="btn-primary">
+                    Predict Winner
+                </button>
+            </form>
+        </div>
+
+        <!-- Loading State -->
+        <div id="loading" class="loading hidden">
+            <div class="spinner"></div>
+            <p>Analyzing matchup...</p>
+        </div>
+
+        <!-- Error Message -->
+        <div id="error" class="error hidden">
+            <p id="errorMessage"></p>
+        </div>
+
+        <!-- Results -->
+        <div id="results" class="card results hidden">
+            <h2>Prediction Results</h2>
+            
+            <!-- Winner Display -->
+            <div class="winner-section">
+                <div class="trophy">🏆</div>
+                <h3>Predicted Winner</h3>
+                <div class="winner-name" id="winnerName">--</div>
+                <div class="confidence-badge" id="confidenceBadge">--</div>
+            </div>
+
+            <!-- Matchup Details -->
+            <div class="matchup-details">
+                <div class="team-column">
+                    <h4 id="homeTeamName" class="team-header">--</h4>
+                    <div class="stat-label">Home Team</div>
+                    <div class="probability" id="homeProbability">--</div>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Avg Points For:</span>
+                            <span class="stat-value" id="homePointsFor">--</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Avg Points Against:</span>
+                            <span class="stat-value" id="homePointsAgainst">--</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Recent Form:</span>
+                            <span class="stat-value" id="homeRecentForm">--</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="vs-divider">VS</div>
+
+                <div class="team-column">
+                    <h4 id="awayTeamName" class="team-header">--</h4>
+                    <div class="stat-label">Away Team</div>
+                    <div class="probability" id="awayProbability">--</div>
+                    <div class="stats">
+                        <div class="stat-item">
+                            <span class="stat-label">Avg Points For:</span>
+                            <span class="stat-value" id="awayPointsFor">--</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Avg Points Against:</span>
+                            <span class="stat-value" id="awayPointsAgainst">--</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">Recent Form:</span>
+                            <span class="stat-value" id="awayRecentForm">--</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Context Info -->
+            <div class="context-info" id="contextInfo"></div>
+
+            <!-- New Prediction Button -->
+            <button class="btn-secondary" onclick="resetForm()">
+                Make Another Prediction
+            </button>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Powered by scikit-learn logistic regression | Data from nflverse</p>
+            <p class="disclaimer">Note: Predictions are statistical estimates and don't account for injuries, weather, or other contextual factors.</p>
+        </footer>
+    </div>
+
+    <script src="/static/script.js"></script>
+</body>
+</html>

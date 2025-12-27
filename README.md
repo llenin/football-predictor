@@ -2,19 +2,24 @@
 
 A machine learning project that predicts NFL game outcomes using historical play-by-play data. This project demonstrates data processing, feature engineering, and predictive modeling using logistic regression.
 
-**NEW: Now supports live current-season predictions!** Automatically downloads the latest 2025 NFL data and makes predictions based on games played so far.
+**NEW: Now available as a web application!** Use the beautiful web interface or the command-line tool.
+
+**ALSO NEW: Live 2025 season predictions!** Automatically downloads the latest NFL data and makes predictions based on games played so far.
 
 ## 📊 Project Overview
 
 This predictor uses historical NFL game data to forecast whether the home team or away team will win a matchup. The model considers team offensive and defensive strength, recent form, and home-field advantage to make predictions with probability estimates.
 
 **Key Features:**
-- **Live 2025 season predictions** using up-to-date data
+- **🌐 Web Application** - Beautiful, responsive web interface
+- **💻 Command-Line Tool** - Full-featured CLI for power users
+- **📡 REST API** - FastAPI backend for integration
+- **🔴 Live 2025 season predictions** using up-to-date data
 - Automatically downloads latest NFL data via nfl_data_py
 - Processes NFL play-by-play data into game-level statistics
 - Engineers meaningful features while avoiding data leakage
 - Trains an interpretable logistic regression model
-- Provides command-line predictions with probability scores
+- Provides predictions with probability scores
 - Clean, documented, and reproducible code
 
 ## 🎯 Model Performance
@@ -102,7 +107,38 @@ python src/update_data.py --season 2025
 
 ## 📝 Usage
 
-### 🆕 Quick Start: 2025 Season Predictions
+You can use this predictor in two ways:
+
+### 🌐 Option 1: Web Application (Recommended)
+
+The easiest way to use the predictor:
+
+```bash
+# 1. Make sure model is trained (one-time setup)
+python src/train_model.py --include-current 2025
+
+# 2. Start the web server
+uvicorn backend.app:app --reload
+
+# 3. Open your browser to http://localhost:8000
+```
+
+**Features:**
+- Beautiful, intuitive interface
+- Select teams from dropdowns
+- See predictions with visual stats
+- Real-time updates
+- No command-line knowledge needed!
+
+**See [WEB_APP_GUIDE.md](WEB_APP_GUIDE.md) for complete web app documentation.**
+
+---
+
+### 💻 Option 2: Command-Line Interface
+
+For power users and automation:
+
+#### 🆕 Quick Start: 2025 Season Predictions
 
 For live 2025 season predictions, follow this workflow:
 
