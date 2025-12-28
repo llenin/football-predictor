@@ -252,7 +252,7 @@ uvicorn backend.app:app --reload --port 3000
 
 Then update `API_BASE_URL` in `frontend/script.js`:
 ```javascript
-const API_BASE_URL = 'http://localhost:3000';
+const API_BASE_URL = "https://nfl-game-predictor.onrender.com";
 ```
 
 ### Viewing Logs

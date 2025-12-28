@@ -1,7 +1,7 @@
 // NFL Game Outcome Predictor - Frontend JavaScript
 
 // API base URL (adjust if backend runs on different port)
-const API_BASE_URL = 'http://localhost:8000';
+const API_BASE_URL = "https://nfl-game-predictor.onrender.com";
 
 // State
 let currentSeason = null;
